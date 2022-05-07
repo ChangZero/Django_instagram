@@ -22,7 +22,7 @@ class User(AbstractUser):
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
     user_name = models.CharField(blank=True, max_length=255)
     profile_photo = models.ImageField(blank = True)
-    webste = models.URLField(blank=True)
+    website = models.URLField(blank=True)
     bio = models.TextField(blank=True)
     email = models.CharField(blank=True, max_length=255)
     phone_number = models.CharField(blank=True, max_length=255)
