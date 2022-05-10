@@ -19,7 +19,7 @@ class Post(TimeStamedModels):
         user_model.User, 
         null=True, 
         on_delete=models.CASCADE, 
-        related_naem = 'post_author')
+        related_name = 'post_author')
     image = models.ImageField(blank=True)
     caption = models.TextField(blank=True)
     image_likes = models.ManyToManyField(user_model.User, related_name ='post_image_likes')
@@ -30,7 +30,7 @@ class Comment(TimeStamedModels):
         user_model.User, 
         null=True, 
         on_delete=models.CASCADE, 
-        related_naem = 'post_author')
+        related_name = 'comment_author')
     posts = models.ForeignKey(
         Post,
         null=True,
