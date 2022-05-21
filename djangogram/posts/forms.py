@@ -13,6 +13,12 @@ class CreatePostForm(forms.ModelForm):
         }
 
 
+class UpdatePostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ["caption"]
+
+
 class CommentForm(forms.ModelForm):
     contents = forms.CharField(widget=forms.Textarea, label="")
 
