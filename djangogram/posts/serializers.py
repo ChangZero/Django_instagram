@@ -1,16 +1,7 @@
 from rest_framework import serializers
+
 from djangogram.users.models import User as user_model
 from . import models
-
-
-class CommentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Comment
-        fields = (
-            "id",
-            "contents",
-            "author",
-        )
 
 
 class FeedAuthorSerializer(serializers.ModelSerializer):
@@ -20,6 +11,18 @@ class FeedAuthorSerializer(serializers.ModelSerializer):
             "id",
             "username",
             "profile_photo",
+        )
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    author = FeedAuthorSerializer()
+
+    class Meta:
+        model = models.Comment
+        fields = (
+            "id",
+            "contents",
+            "author",
         )
 
 
