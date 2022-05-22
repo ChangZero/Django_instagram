@@ -58,7 +58,7 @@ def post_create(request):
             else:
                 print(form.errors)
 
-            return render(request, 'posts/main.html')
+            return redirect(reverse('posts:index'))
 
         else:
             return render(request, 'users/main.html')
@@ -88,6 +88,18 @@ def post_update(request, post_id):
                 post.save()
 
             return redirect(reverse('posts:index'))
+
+    else:
+        return render(request, 'users/main.html')
+
+
+def post_delete(request, post_id):
+    if request.user.is_authenticated:
+        post = get_object_or_404(models.Post, pk=post_id)
+        if request.user == post.author:
+            post.delete()
+
+        return redirect(reverse('posts:index'))
 
     else:
         return render(request, 'users/main.html')
