@@ -1,6 +1,7 @@
 # djangogram
 ==============
-## To-Do
+django frame work를 활용하여 instagram을 클론코딩해보았다.
+## 구현 기능
 -------------
 - [] 포스트 생성
 - [] 포스트 수정
